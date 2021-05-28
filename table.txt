@@ -1,0 +1,11 @@
++==========+
++CLASS USER+
++==========+
+
+Name
+Lastname
+email
+password
+age
+country_of_origin
+Reputation
