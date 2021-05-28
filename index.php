@@ -18,7 +18,7 @@ class User {
     public $reputation;
 
     // contruct per popolare valori essenziali 
-    public function __construct($name, $lastname, $email, $password){
+    public function __construct($name, $lastname, $email, $password, $reputation = 0){
         $this->name = $name;
         $this->lastname = $lastname;
         $this->email = $email;
@@ -32,6 +32,7 @@ class User {
     }
 }
 // istanza utente 
+//reputazione inizializzata a 0
 $user1 = new User('Gianluca', 'Ciccio', 'cicciog@gmail.com', 'cicco123');
 $user1->age = 23;
 $user1->country_of_origin = 'italy'; 
@@ -55,9 +56,32 @@ $user4->age = 49;
 $user4->country_of_origin = 'france'; 
 $user4->getReputation();
 
-// var_dump($user1);
-
 $users = array($user1, $user2, $user3, $user4);
-
-var_dump($users);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Users</title>
+</head>
+<body>
+    <h1>Lista utenti</h1>
+
+    <ul>
+        <?php foreach($users as $user) {?>
+                <li>
+                    Nome: <?php echo $user->name; ?> <br>
+                    Cognome: <?php echo $user->lastname; ?> <br>
+                    Eta': <?php echo $user->age; ?> <br>
+                    Email: <?php echo $user->email; ?> <br>
+                    Nazionalita': <?php echo $user->country_of_origin; ?> <br>
+                    Reputazione: <?php echo $user->reputation; ?> <br>
+                </li>
+                <br>
+        <?php } ?>            
+    </ul>
+</body>
+</html>
